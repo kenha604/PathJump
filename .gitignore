@@ -1,0 +1,16 @@
+# Build output
+bin/
+obj/
+dist/
+
+# The built app copied next to the source, and its personal data (saved paths, settings)
+/PathJump.exe
+Data/
+
+# Editor files
+.vs/
+.vscode/
+*.user
+
+# Release zips (publish to GitHub Releases instead)
+*.zip
