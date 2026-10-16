@@ -25,7 +25,7 @@ Needs the [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0).
 git clone https://github.com/kenha604/PathJump.git
 cd PathJump
 dotnet build -c Release   # quick build: bin\Release\net9.0-windows\PathJump.exe (needs .NET 9 to run)
-pwsh -File publish.ps1    # standalone build: dist\PathJump\PathJump.exe + dist\PathJump.zip (runs anywhere)
+pwsh -File publish.ps1    # standalone build: dist\PathJump.zip (PathJump.exe that runs anywhere + tutorial)
 ```
 
 | File | What it does |
@@ -191,6 +191,7 @@ To remove a favorite: **right-click it** in the Favorites section (or highlight 
 
 Right-click the tray icon:
 
+- **Running from: …** (top line): which folder this copy of PathJump runs from. Hover it to see where its saved paths are stored.
 - **Show paths**: opens the panel (left-clicking the icon does the same).
 - **Change hotkeys…**: pick your own keys (see section 8).
 - **Pause capturing**: stops collecting copied paths, e.g. while copying lots of files you don't want saved.
@@ -228,6 +229,7 @@ Your saved paths are in **`paths.json`** in the `Data` folder next to `PathJump.
 | A path I copied isn't in the list | It must be a full path that exists, like `C:\...` or `\\server\share\...`. Check that **Pause capturing** is off. |
 | The dialog didn't jump | Some apps use their own save screens instead of the Windows one (e.g. Office's full-page "Save As"; click **Browse** there to get the real dialog). Otherwise use **Shift**+click to paste the path into the filename box and press Enter. |
 | Doesn't work in an app run as administrator | Windows blocks this. Either run PathJump as administrator too, or use **Shift**+click to paste. |
+| My favorites / saved paths disappeared | You're probably running a **different copy** of `PathJump.exe` (e.g. a shortcut pointing at another folder). Each copy keeps its own `Data` folder. Right-click the tray icon: the top line shows which folder this copy runs from. Start the copy whose `Data` folder has your list, and point your shortcuts at it. |
 | An "Open in Explorer" folder is missing | Special views like **Home** or **This PC** aren't real folders, so they're skipped. |
 
 ---

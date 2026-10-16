@@ -86,6 +86,12 @@ class App : ApplicationContext
         panel.Picked += OnPicked;
 
         var menu = new ContextMenuStrip();
+        // Shows which copy is running: each copy keeps its own Data folder, so running a different
+        // copy (e.g. a fresh build) looks like lost favorites.
+        var location = new ToolStripMenuItem($"Running from: {AppContext.BaseDirectory.TrimEnd('\\')}") { Enabled = false };
+        location.ToolTipText = $"Saved paths and settings: {Store.DataDir}";
+        menu.Items.Add(location);
+        menu.Items.Add(new ToolStripSeparator());
         menu.Items.Add("Show paths", null, (_, _) => ShowPanel(IntPtr.Zero));
         menu.Items.Add("Change hotkeys…", null, (_, _) => OpenHotkeyWizard());
         pauseItem.CheckOnClick = true;
